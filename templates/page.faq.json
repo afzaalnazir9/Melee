@@ -1,0 +1,234 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "custom_css": [
+        "h1 {text-align: center;}"
+      ],
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "rich_text_fUEA7H": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_iQaB3R": {
+          "type": "heading",
+          "settings": {
+            "heading": "FAQ",
+            "heading_size": "h1"
+          }
+        }
+      },
+      "block_order": [
+        "heading_iQaB3R"
+      ],
+      "custom_css": [
+        "@media (min-width: 800px) {{margin-left: 65px; }}",
+        "@media (max-width: 800px) {{margin-left: -20px; }}"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "left",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 16,
+        "padding_bottom": 0
+      }
+    },
+    "collapsible_content_EMmgNm": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_JGh8CJ": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Can I cancel my order?",
+            "icon": "none",
+            "row_content": "<p>You may cancel an order for a full refund as long as your order has not shipped. To cancel your order, please email <a href=\"mailto:info@fullsend.com\"><span style=\"text-decoration:underline\">info@fullsend.com<\/span><\/a>. <\/p><p>If your order has already shipped, we are unable to cancel your order. <\/p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_UxpVYe": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What forms of payment do you accept?",
+            "icon": "none",
+            "row_content": "<p>We accept Visa, Mastercard, American Express, Shop Pay, Apple Pay & Google Pay. <\/p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_jx9mLp": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Why was I charged more than once for an order?",
+            "icon": "none",
+            "row_content": "<p>If you use a credit card to place an order and it is declined for any reason (including but not limited to invalid CVV, expiration date, billing address, etc), you may see a pending charge on your account. If this happens, the pending charge will clear from your bank statement within 1-5 days. <\/p><p>Unfortunately if this happens, we are not able to do anything on our end. If you're concerned about the pending charges, your best option is to contact your bank. If these charges do not disappear from your account after 10 business days, please reach out to our team <span style=\"text-decoration:underline\">here<\/span> to investigate. <\/p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_geNa3b": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "My credit or debit card is not working",
+            "icon": "none",
+            "row_content": "<p>If your credit or debit card is not working, please verify that the following is correct:<\/p><p><\/p><ul><li>Credit or debit card number<\/li><li>Expiration date<\/li><li>CVV\/card security code<\/li><li>Cardholder name<\/li><li>Billing address<\/li><li>Sufficient funds or credit available<\/li><\/ul><p>If you still are having issues, the best option is to reach out to your financial institution\/bank directly.<\/p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_GMEj8H": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Do the prices shown on product pages include tax?",
+            "icon": "none",
+            "row_content": "<p>Prices shown on product pages do not include tax. Tax is calculated at checkout based on your shipping address and relevant tax rules. <\/p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_YRWBdr": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Can I change my order?",
+            "icon": "none",
+            "row_content": "<p>Due to the nature of our drops and the limited quantities available, we are unable to make any changes to any orders. <\/p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_JGh8CJ",
+        "collapsible_row_UxpVYe",
+        "collapsible_row_jx9mLp",
+        "collapsible_row_geNa3b",
+        "collapsible_row_GMEj8H",
+        "collapsible_row_YRWBdr"
+      ],
+      "custom_css": [
+        "h3.accordion__title.inline-richtext.h4 {font-size: 17px !important;}",
+        "h2.collapsible-content__heading.inline-richtext.h1 {font-size: 26px;}"
+      ],
+      "settings": {
+        "caption": "",
+        "heading": "ORDERS & PAYMENT",
+        "heading_size": "h1",
+        "heading_alignment": "left",
+        "layout": "none",
+        "color_scheme": "",
+        "container_color_scheme": "",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "collapsible_content_R8J6MD": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_fYdnR4": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Do you accept returns or exchanges?",
+            "icon": "none",
+            "row_content": "<p>We do not offer returns or exchanges under any circumstance due to the nature of our drops and the limited quantities available. <\/p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_XfjzJx": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "My order\/item was damaged in transit",
+            "icon": "none",
+            "row_content": "<p>If your order\/item is damaged during shipping, please send a photo of the damage, your email address used to place the order and order number within 48 hours of receiving it to <span style=\"text-decoration:underline\">info@fullsend.com<\/span>. <\/p><p>If 48 hours has passed since delivery, we are unable to replace or refund your order. <\/p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_NW4NbF": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "My order was returned to sender",
+            "icon": "none",
+            "row_content": "<p>If your order was returned to sender for any reason, you will receive an email from our customer service team to fix the issue once it has been delivered back to our fulfillment center. If you do not respond within 7 days, your order will be cancelled and refunded minus any relevant shipping fees.<\/p><p>Once an item has been marked as returned to sender by the post office, the only option is to wait for it to arrive back at our warehouse. <\/p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_fYdnR4",
+        "collapsible_row_XfjzJx",
+        "collapsible_row_NW4NbF"
+      ],
+      "custom_css": [
+        "h3.accordion__title.inline-richtext.h4 {font-size: 17px !important;}",
+        "h2.collapsible-content__heading.inline-richtext.h1 {font-size: 26px;}"
+      ],
+      "settings": {
+        "caption": "",
+        "heading": "RETURNS\/REFUNDS",
+        "heading_size": "h1",
+        "heading_alignment": "left",
+        "layout": "none",
+        "color_scheme": "",
+        "container_color_scheme": "",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "collapsible_content_anfaEn": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_rVEBRE": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "When is the next drop?",
+            "icon": "none",
+            "row_content": "<p>Our drop dates are announced via multiple channels. The best way to stay up to date is to follow <span style=\"text-decoration:underline\">@nelkboys<\/span> and <span style=\"text-decoration:underline\">@ShopFullSend<\/span>.<\/p><p>You can also subscribe to our email list on our home page to be notified.<\/p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_qcH4pp": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How do I know if an item I purchased is legitimate or real?",
+            "icon": "none",
+            "row_content": "<p>The only way to know if a Full Send product is legitimate or real is to buy it from FullSend.com or StockX.<\/p><p>Please be aware that there are many counterfeit and fake Full Send items being sold on third party websites and marketplaces. There is no way to guarantee the authenticity items sold on any other site than FullSend.com or StockX.<\/p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_rVEBRE",
+        "collapsible_row_qcH4pp"
+      ],
+      "custom_css": [
+        "h3.accordion__title.inline-richtext.h4 {font-size: 17px !important;}",
+        "h2.collapsible-content__heading.inline-richtext.h1 {font-size: 26px;}"
+      ],
+      "settings": {
+        "caption": "",
+        "heading": "ADDITIONAL FAQ",
+        "heading_size": "h1",
+        "heading_alignment": "left",
+        "layout": "none",
+        "color_scheme": "",
+        "container_color_scheme": "",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "main",
+    "rich_text_fUEA7H",
+    "collapsible_content_EMmgNm",
+    "collapsible_content_R8J6MD",
+    "collapsible_content_anfaEn"
+  ]
+}

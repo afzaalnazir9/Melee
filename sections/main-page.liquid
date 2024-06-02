@@ -1,3 +1,39 @@
+{% capture contentForQueryString %}{{ content_for_header }}{% endcapture %}
+
+  {% assign pageParams = contentForQueryString
+
+    | split: '"pageurl":"'
+
+    | last
+
+    | split: '"'
+
+    | first
+
+    | split: '.myshopify.com'
+
+    | last
+
+    | split: '?'
+
+    | last
+
+    | replace: '\/', '/'
+
+    | replace: '%20', ' '
+
+    | replace: '\u0026', '&'
+
+    | split: '&'
+
+  %}
+
+{% for param in pageParams %}
+  {% if param contains 'password=' %}
+    {% capture pagePassword %}{{ param | split: '=' | last }}{% endcapture %}
+  {% endif %}
+{% endfor %}
+
 {{ 'section-main-page.css' | asset_url | stylesheet_tag }}
 
 {%- style -%}
@@ -14,19 +50,291 @@
   }
 {%- endstyle -%}
 
-<div class="mainnn">
-  <div class="menucustom">
-{{ section.settings.custom }}
+{% if  page.metafields.custom.password == empty or page.metafields.custom.password == pagePassword %}
+  <div class="mainnn">
+    <div class="menucustom">
+      {{ section.settings.custom }}
+    </div>
+    <div class="content33">
+        <h1 class="main-page-title page-title h0{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
+          {{ page.title | escape }}
+        </h1>
+          <div class="rte{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+            {{ page.content }}
+          </div>
+    </div>
   </div>
-  <div class="content33">
-  <h1 class="main-page-title page-title h0{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
-    {{ page.title | escape }}
-  </h1>
-  <div class="rte{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
-    {{ page.content }}
+{% else %}
+  <style>
+    #password-section .countdown-timer {
+      background: rgb(185, 28, 28, 1);
+      padding: 12px;
+      border-radius: 8px;
+      width: fit-content;
+      margin: auto;
+      color: black;
+    }
+    #password-section {
+      max-width: 1280px;
+      margin: auto;
+      text-align: center;
+      padding: 20px;
+    }
+    #password-section .password-page-content {
+        width: 75%;
+        margin: auto;
+    }
+    #password-section .unlock-btn {
+      border: 1px solid hsl(240 3.7% 15.9%);
+      background: transparent;
+      border-radius: 20px;
+      padding-left: 40px;
+      padding-right: 40px;
+      letter-spacing: 0px;
+      margin-top: 16px;
+    }
+    #password-section .field__input {
+      border: 1px solid hsl(240 3.7% 15.9%);
+      border-radius: 10px;
+      padding: 8px;
+    }
+    #password-section p {
+      color: white;
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+    #password-section .countdown-timer span {
+      line-height: 1;
+      font-weight: 700;
+      font-size: 28px;
+    }
+    #password-section .countdown-timer span.tracking-widest {
+      display: block;
+      font-size: 24px;
+    }
+
+    @media screen and (min-width: 475px) {
+      #password-section .countdown-timer span {
+          font-size: 36px;
+      }
+    }
+    @media screen and (min-width: 640px) {
+      #password-section .countdown-timer span {
+          font-size: 50px;
+      }
+       #password-section .countdown-timer span.tracking-widest {
+        font-size: 36px;
+       }
+    }
+    .header-wrapper {
+      display: none;
+    }
+    #password-section .brand-logo img {
+       width: 75%;
+       margin-bottom: 24px;
+        margin-top: 40px;
+    }
+    @media (min-width: 640px) {
+      #password-section .brand-logo img {
+        width: 58.333333%;
+        margin-top: 80px;
+      }
+      #password-section .password-page-content {
+        width: 50%;
+      }
+    }
+    @media (min-width: 768px) {
+      #password-section .brand-logo img {
+        width: 50%;
+      }
+       #password-section .password-page-content {
+        width: 41.666667%;
+      }
+    }
+    @media (min-width: 1024px) {
+      #password-section .brand-logo img {
+        width: 41.666667%;
+        margin-top: 112px;
+      }
+      #password-section .password-page-content {
+        width: 25%;
+      }
+    }
+    #password-section .unlock-btn::before, #password-section .unlock-btn::after, .countdown-timer {
+      display: none;
+    }
+    h2.mail-title {
+      margin: 0;
+    }
+    .email-signup-section p {
+        margin-top: 0;
+    }
+    #password-section .newsletter-form__field-wrapper .field__input {
+      padding: 0 18px;
+    }
+    .email-signup-section.password-page-content {
+        margin-top: 56px !important;
+    }
+    @media screen and (min-width: 640px) {
+      .subscription-details {
+          width: 66.666667%;
+          margin: auto;
+          margin-top: 16px;
+      }
+    }
+    .subscription-details {
+      font-size: 16px;
+      line-height: 1.2;
+      letter-spacing: 1px;
+    }
+  </style>
+  
+  <div id="password-section">
+    {% if section.settings.next_drop_date != null %}
+    <div class="countdown-timer">
+      <span class="tracking-widest">NEXT DROP IN:</span>
+      <span id="days">0D :</span>
+      <span id="hours">0H :</span>
+      <span id="minutes">0M :</span>
+      <span id="seconds">0S</span>
+    </div>
+    {% endif %}
+      {%- if settings.logo != blank -%}
+      <div class="brand-logo">
+        <a href="{{ routes.root_url }}">
+            {{ settings.logo | image_url: width: '500' | image_tag:
+              class: 'header__heading-logo motion-reduce',
+              preload: true
+            }}
+        </a>
+      </div>
+      {%- endif -%}
+    <div class="password-page-content">  
+      <p>
+      {% if pagePassword %}
+        {{ section.settings.wrong_password_prompt_text }}
+      {% else %}
+        {{ section.settings.password_prompt_text }}
+      {%  endif %}
+      </p>
+      <input type="password" id="password-input" class="field__input" placeholder="Password" autofocus autocomplete="off" onkeypress="if(event.keyCode == 13){ window.location.href = '{{ request.path }}?password=' + this.value; }"/>
+      <button type="button" class="button unlock-btn" onclick="window.location.href = '{{ request.path }}?password=' + document.querySelector('#password-input').value;">{{ section.settings.submit_password_text }}</button>
+    </div>
+
+    <div class="email-signup-section password-page-content">
+      {% if section.settings.email_title != blank %}
+        <h2 class="mail-title">{{ section.settings.email_title }}</h2>
+      {% endif %}
+      
+      {% if section.settings.email_subtitle != blank %}
+        <p>{{ section.settings.email_subtitle }}</p>
+      {% endif %}
+      {% form 'customer', class: 'newsletter-form' %}
+        <input type="hidden" name="contact[tags]" value="newsletter">
+        <div class="newsletter-form__field-wrapper">
+          <div>
+            <input
+              id="NewsletterForm--{{ section.id }}"
+              type="email"
+              name="contact[email]"
+              class="field__input"
+              value="{{ form.email }}"
+              aria-required="true"
+              autocorrect="off"
+              autocapitalize="off"
+              autocomplete="email"
+              {% if form.errors %}
+                autofocus
+                aria-invalid="true"
+                aria-describedby="Newsletter-error--{{ section.id }}"
+              {% elsif form.posted_successfully? %}
+                aria-describedby="Newsletter-success--{{ section.id }}"
+              {% endif %}
+              placeholder="{{ 'newsletter.label' | t }}"
+              required
+            >
+            <label class="field__label" for="NewsletterForm--{{ section.id }}">
+              {{ 'newsletter.label' | t }}
+            </label>
+      
+          </div>
+            <button 
+              type="submit"
+              name="commit"
+              class="button unlock-btn"
+              id="Subscribe"
+              aria-label="{{ 'newsletter.button_label' | t }}"
+            >
+              {{ section.settings.submit_email_text }}
+            </button>
+          {%- if form.errors -%}
+            <small class="newsletter-form__message form__message" id="Newsletter-error--{{ section.id }}">
+              {%- render 'icon-error' -%}
+              {{- form.errors.translated_fields.email | capitalize }}
+              {{ form.errors.messages.email -}}
+            </small>
+          {%- endif -%}
+        </div>
+        {%- if form.posted_successfully? -%}
+          <h3
+            class="newsletter-form__message newsletter-form__message--success form__message"
+            id="Newsletter-success--{{ section.id }}"
+            tabindex="-1"
+            autofocus
+          >
+            {% render 'icon-success' -%}
+            {{- 'newsletter.success' | t }}
+          </h3>
+        {%- endif -%}
+      {% endform %}
+    </div>
+    {% if section.settings.email_description != blank %}
+    <p class="subscription-details">
+      {{ section.settings.email_description }}
+    </p>
+    {% endif %}
   </div>
-</div>
-</div>
+{% endif %}
+
+{% if section.settings.next_drop_date != null %}
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    function parseDateTime(dateTimeStr) {
+      const [datePart, timePart] = dateTimeStr.split(' ');
+      const [day, month, year] = datePart.split('/').map(part => parseInt(part, 10));
+      const [hours, minutes, seconds] = timePart.split(':').map(part => parseInt(part, 10));
+      return new Date(year, month - 1, day, hours, minutes, seconds).getTime();
+    }
+
+    const nextDropDateStr = '{{ section.settings.next_drop_date }}';
+    const targetDate = parseDateTime(nextDropDateStr);
+
+    const countdownFunction = setInterval(function() {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById('days').innerHTML = days + "D :";
+      document.getElementById('hours').innerHTML = hours + "H :";
+      document.getElementById('minutes').innerHTML = minutes + "M :";
+      document.getElementById('seconds').innerHTML = seconds + "S";
+
+      if (distance < 0) {
+        clearInterval(countdownFunction);
+        document.querySelector('.countdown-timer').innerHTML = "EXPIRED";
+        document.querySelector('.countdown-timer').style.display = 'none';
+      } else {
+        document.querySelector('.countdown-timer').style.display = 'block';
+      }
+    }, 1000);
+  });
+</script>
+{% endif %}
+
 {% schema %}
 {
   "name": "t:sections.main-page.name",
@@ -61,6 +369,53 @@
       "unit": "px",
       "label": "t:sections.all.padding.padding_bottom",
       "default": 36
+    },
+    {
+      "type": "text",
+      "id": "next_drop_date",
+      "label": "End date and time",
+      "info": "Format: dd/mm/yyyy hh:mm:ss"
+    },
+    {
+      "id": "password_prompt_text",
+      "type": "text",
+      "label": "Text to tell visitor to input password",
+      "default": "Please input password to view this page"
+    },
+    {
+      "id": "wrong_password_prompt_text",
+      "type": "text",
+      "label": "Text to tell visitor to input a correct password",
+      "default": "Wrong password, please try again"
+    },
+    {
+      "id": "submit_password_text",
+      "type": "text",
+      "label": "Text for the submit password button",
+      "default": "SUBMIT"
+    },
+    {
+      "id": "email_title",
+      "type": "text",
+      "label": "Mail title",
+      "default": "ACCESS TO DROP"
+    },
+    {
+      "id": "email_subtitle",
+      "type": "text",
+      "label": "Mail sub-title",
+      "default": "Sign up to get access to our next drop"
+    },
+    {
+      "id": "submit_email_text",
+      "type": "text",
+      "label": "Text for the submit email button",
+      "default": "SUBSCRIBE"
+    },
+    {
+      "id": "email_description",
+      "type": "html",
+      "label": "Drop description"
     }
   ]
 }

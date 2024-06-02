@@ -378,7 +378,16 @@
 
 #recover,
 #login {
+  margin-top: 32px;
   scroll-margin-top: 20rem;
+}
+
+#recover,
+#login, #register-account {
+  font-weight: 600;
+  font-size: 2.95rem;
+  letter-spacing: -1px;
+  margin: 32px 0;
 }
 
 #recover {

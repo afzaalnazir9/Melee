@@ -132,6 +132,7 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
 
 @media screen and (min-width: 990px) {
   .header:not(.drawer-menu).page-width {
+    margin-left: 0;
     padding-left: 5rem;
     padding-right: 5rem;
   }
@@ -2440,9 +2441,29 @@ product-info .loading__spinner:not(.hidden) ~ *,
 }
 
 .header__heading-logo-wrapper {
-  width: 100%;
   display: inline-block;
   transition: width 0.3s cubic-bezier(0.52, 0, 0.61, 0.99);
+}
+
+.header__heading-logo-wrapper {
+  width: 50%;
+}
+
+.header__heading-logo-wrapper img {
+  width: 120%;
+  max-width: unset;
+}
+
+@media (min-width: 768px) {
+  .header__heading-logo-wrapper {
+      width: 33.333333%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .header__heading-logo-wrapper {
+      width: 25%;
+  }
 }
 
 @media screen and (max-width: 989px) {
@@ -2551,7 +2572,13 @@ product-info .loading__spinner:not(.hidden) ~ *,
   width: 100%;
   display: block;
   position: absolute;
-  background: rgba(var(--color-foreground), 0.5);
+  background: rgba(var(--color-foreground), .5);
+  background-color: rgba(63, 63, 70, .5);
+  transition-property: opacity;
+  transition-timing-function: cubic-bezier(.4,0,.2,1);
+  transition-duration: .15s;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 0 #0000, 0 0 #0000, 0 1px 3px 0 rgba(0, 0, 0, .1), 0 1px 2px -1px rgba(0, 0, 0, .1);
 }
 
 .header__icon--account shop-user-avatar {
@@ -2896,6 +2923,11 @@ details-disclosure > details {
   border-color: rgba(var(--color-badge-border), var(--alpha-badge-border));
   color: rgb(var(--color-badge-foreground));
   word-break: break-word;
+}
+
+.badge.sold-out {
+  background-color: red;
+  border-radius: 0;
 }
 
 .gradient {
@@ -3462,4 +3494,135 @@ details-disclosure > details {
   .animate--hover-vertical-lift .button:not([disabled]).button--secondary:hover:after {
     --border-offset: 0px; /* Prevent the border from growing on buttons when this effect is on. */
   }
+}
+
+#auth-wrapper {
+  border-radius: calc(0.5rem - 2px);
+  border: 1px solid hsl(240 3.7% 15.9%);
+  padding: 40px 32px;
+  width: 100%;
+}
+
+#auth-wrapper.customer button.form-submit-btn {
+  width: 100%;
+  background: white;
+  color: black;
+  margin-top: 0;
+  border-radius: 6px;
+  margin-top: 16px;
+}
+
+#auth-wrapper.customer a, #contact-main-wrapper a {
+  color: white;
+  font-weight: 600;
+}
+
+#auth-wrapper p.create-account-link a, #contact-main-wrapper a {
+  display: unset;
+}
+
+#auth-wrapper .field:after, #auth-wrapper .field::before, #contact-main-wrapper .field:after, #contact-main-wrapper .field::before {
+  display: none;
+}
+
+#auth-wrapper .field input, #contact-main-wrapper .field .field__input, #contact-main-wrapper .field .field__input {
+  border: 1px solid hsl(240 3.7% 15.9%);
+}
+
+
+#auth-wrapper .customer .field+a:hover , #auth-wrapper p.create-account-link a:hover {
+  color: white;
+}
+
+#auth-wrapper.customer form {
+  margin-top: 0;
+}
+
+#auth-wrapper.customer .field, #contact-main-wrapper .field {
+  margin: 16px 0 0;
+  display: unset;
+}
+
+#main-auth {
+  height: 100vh;
+  display: flex;
+  display: -webkit-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#auth-wrapper.customer label, #contact-main-wrapper label {
+  position: unset;
+  color: white;
+  font-weight: 500;
+}
+
+#auth-wrapper .form-fields, #contact-main-wrapper .form-fields {
+  text-align: left;
+  display: flex;
+  display: -webkit-flex;
+  flex-direction: column;
+}
+
+#auth-wrapper .field input:focus, #auth-wrapper.customer .field input, #contact-main-wrapper .field .field__input:focus, #contact-main-wrapper .field .field__input {
+  padding: 12px 8px;
+}
+
+#contact-main-wrapper .contact__button button[type='submit']{
+  background: white;
+  color: black;
+  font-weight: 600;
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0 16px;
+}
+
+#contact-main-wrapper .contact__button svg {
+  width: 16px;
+  height: 16px;
+}
+
+#contact-main-wrapper .contact.page-width {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  max-width: 1280px;
+}
+
+@media screen and (max-width:767px) {
+  #contact-main-wrapper .contact.page-width {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+}
+
+#contact-main-wrapper .reason-selector {
+  position: relative;
+}
+
+#contact-main-wrapper .reason-selector i {
+  position: absolute;
+  top: 35%;
+  right: 16px;
+}
+
+#contact-main-wrapper .rotate {
+  transform: rotate(180deg);
+  transition: transform 0.3s ease;
+}
+
+#contact-main-wrapper .contact-heading {
+  font-size: 40px;
+  font-weight: 700;
+  margin: 0;
+  margin-bottom: 16px;
+}
+
+#contact-main-wrapper .contact-info-section .support-email {
+  display: flex;
+  display: -webkit-flex;
+  align-items: center;
+  gap: 8px
 }

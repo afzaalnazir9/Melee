@@ -42,6 +42,12 @@ menu-drawer > details[open] > summary::before {
   );
 }
 
+@media screen and (max-width: 750px) {
+  .menu-drawer {
+   width: 320px;
+  }
+}
+
 .js .menu-drawer {
   height: calc(100vh - 100%);
   height: calc(var(--viewport-height, 100vh) - (var(--header-bottom-position, 100%)));
